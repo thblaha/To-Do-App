@@ -1,0 +1,19 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "todo app in jquery",
+  "main": "routes/server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "todo",
+    "jquery"
+  ],
+  "author": "Veronica Blaha",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
