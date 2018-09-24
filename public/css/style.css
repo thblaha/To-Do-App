@@ -1,100 +1,82 @@
-
-
-/* * {
-    box-sizing: border-box;
-} */
-
-/* Style the list items */
-ul li {
-    cursor: pointer;
-    position: center;
-    padding: 12px 8px 12px 40px;
-    background: #eee;
-    font-size: 18px;
-    transition: 0.2s;
-    
-    
-
-    /* make the list items unselectable
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-*/
+body {
+    font-family: 'Roboto';
 }
 
-/* Add a "checked" mark when clicked on */
-ul li.checked::before {
-    content: '';
-    position: absolute;
-    border-color: #fff;
-    border-style: solid;
-    top: 10px;
-    left: 16px;
-    transform: rotate(45deg);
-    height: 15px;
-    width: 7px;
+#new-todo-text {
+    width: 425px;
+    font-size: 1.5em;
+    margin: 15px;
+    border-width: 1px;
 }
 
-/* Style the close button */
-.close {
-    color:rgb(52, 65, 132);
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 12px 16px 12px 16px;
+.wrapper {
+    width: 500px;
+    height: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.close:hover {
-   
-    color: white;
+.rounded-gradiant, .rounded-gradiant:focus {
+    border: 2px solid transparent;
+    border-radius: 15px;
+    background-image: linear-gradient(white, white), radial-gradient(circle at top left, #b60773, purple);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
 }
 
-/* Style the header */
- .header {  
-    background-color: linear-gradient(to right,rgb(139, 31, 76),rgb(84, 28, 124);
-    font-family:'Roboto';
-    padding: 30px 40px;
+#todos {
+    display: grid;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    padding: 15px;
+    font-weight: 800;
+    color: black;
+}
+
+.todo {
+    background-color: rgb(242, 242, 242);
+    border-radius: 10px;
     text-align: left;
-  
+    padding: 10px;
+    display: flex;
+    align-items: center;
 }
 
-
-/* Clear floats after the header */
-/* .header:after {
-    content: "";
-    display: table;
-    clear: both;
-} */
-
-/* Style the input */
-input {
-    margin: 0;
-    border: 5px;
-    border-radius: 5px;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
+.list-text {
+    flex: 1;
+    padding: 4px;
 }
 
-/* Style the "Add" button */
-.addBtn {
-    padding: 10px;
-    width: 25%;
-    background: #d9d9d9;
-    color: #555;
-    float: left;
-    text-align: center;
-    font-size: 16px;
+.completed {
+    color: black;
     cursor: pointer;
-    transition: 0.3s;
-    border-radius: 0;
 }
 
-.addBtn:hover {
-    background-color: #bbb;
+.delete,
+.submit {
+    cursor: pointer;
+    padding: 0;
+    border: none;
+    font: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    color: rgb(52, 65, 132);
+}
+
+.delete {
+    color: rgb(52, 65, 132);
+    font-size: 1.5em;
+}
+
+header {
+    display: grid;
+    grid-area: header;
+    background: linear-gradient(to left top, rgb(132, 0, 255), rgb(226, 11, 136));
+    color: white;
+    font-size: 40pt;
+    text-align: center;     
+    padding: 20px;  
+    margin-bottom: 1em;
 }
 
 /* x color: rgb(52, 65, 132);
-gradient purple: rgb(84, 28, 124);
-gradient pink: rgb(139, 31, 76); */

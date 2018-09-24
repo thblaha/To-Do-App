@@ -23,15 +23,18 @@ $(function () {
   const renderTodo = function (outputElement, todo, index) {
     const output = $(outputElement);
 
-    const todoEl = $('<div>');
+    const todoEl = $('<div>').addClass('todo');
     todoEl.append(
       $('<input type="checkbox">')
       .attr('checked', todo.completed)
       .addClass('completed')
       .attr('data-index', index),
-      $('<span>').text(todo.text),
+    
+
+      $('<span>').text(todo.text).addClass('list-text'),
+
       $('<button>')
-      .text('X')
+      .text('x')
       .addClass('delete')
       .attr('data-index', index)
     );
@@ -102,11 +105,7 @@ $(function () {
           // Set the users focus (cursor) to input
           $('#new-todo-text').focus();
 
-          // Update local state
-          state.todos.push(newTodo);
-
-          // Render the new Todo to the list
-          renderTodo('#todos', newTodo, state.todos.length);
+          render();
         } else {
 
           alert('There was a problem with your submission. Please check your entry and try again.');
