@@ -24,19 +24,28 @@ $(function () {
     const output = $(outputElement);
 
     const todoEl = $('<div>').addClass('todo');
-    todoEl.append(
-      $('<input type="checkbox">')
+
+    const label = $('<label>').addClass('fancy-checkbox');
+    const checkbox = $('<input type="checkbox">')
       .attr('checked', todo.completed)
       .addClass('completed')
-      .attr('data-index', index),
-    
+      .attr('data-index', index);
+
+
+    label.append(checkbox);
+    label.append('<i class="fas fa-check-square checked">');
+    label.append('<i class="far fa-square unchecked">');
+
+    todoEl.append(
+      label,
 
       $('<span>').text(todo.text).addClass('list-text'),
 
       $('<button>')
-      .text('x')
+      // .text('x')
       .addClass('delete')
       .attr('data-index', index)
+      .append('<i>').addClass('fas fa-times')
     );
 
     output.append(todoEl);

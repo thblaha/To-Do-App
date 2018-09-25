@@ -1,12 +1,26 @@
 body {
     font-family: 'Roboto';
+    font-size: 1.5em;
+}
+
+header {
+    background: linear-gradient(to left top, rgb(132, 0, 255), rgb(226, 11, 136));
+    color: white;
+    font-size: 40pt;
+    text-align: left;
+    padding: 20px;
+    margin-bottom: 1em;
+    font-weight: 100;
 }
 
 #new-todo-text {
     width: 425px;
-    font-size: 1.5em;
     margin: 15px;
     border-width: 1px;
+    font-weight: 400;
+    font-size: 1.5rem;
+    /* override to fill in input to match todos */
+    background-image: linear-gradient(rgb(242, 242, 242), rgb(242, 242, 242)), radial-gradient(circle at top left, #b60773, purple);
 }
 
 .wrapper {
@@ -16,20 +30,11 @@ body {
     margin-right: auto;
 }
 
-.rounded-gradiant, .rounded-gradiant:focus {
-    border: 2px solid transparent;
-    border-radius: 15px;
-    background-image: linear-gradient(white, white), radial-gradient(circle at top left, #b60773, purple);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-}
-
 #todos {
     display: grid;
     grid-template-rows: auto;
     grid-gap: 20px;
     padding: 15px;
-    font-weight: 800;
     color: black;
 }
 
@@ -40,21 +45,17 @@ body {
     padding: 10px;
     display: flex;
     align-items: center;
+    font-weight: 400;
 }
 
 .list-text {
     flex: 1;
     padding: 4px;
-}
-
-.completed {
-    color: black;
-    cursor: pointer;
+    padding-left: 10px;
 }
 
 .delete,
 .submit {
-    cursor: pointer;
     padding: 0;
     border: none;
     font: inherit;
@@ -65,18 +66,49 @@ body {
 
 .delete {
     color: rgb(52, 65, 132);
-    font-size: 1.5em;
 }
 
-header {
-    display: grid;
-    grid-area: header;
-    background: linear-gradient(to left top, rgb(132, 0, 255), rgb(226, 11, 136));
-    color: white;
-    font-size: 40pt;
-    text-align: center;     
-    padding: 20px;  
-    margin-bottom: 1em;
+.completed,
+.fancy-checkbox {
+    color: black;
+    cursor: pointer;
 }
 
-/* x color: rgb(52, 65, 132);
+/* custom icon checkboxes */
+.fancy-checkbox input[type="checkbox"],
+.fancy-checkbox .checked {
+    display: none;
+}
+
+.fancy-checkbox input[type="checkbox"]:checked~.checked {
+    display: inline-block;
+}
+
+.fancy-checkbox input[type="checkbox"]:checked~.unchecked {
+    display: none;
+}
+
+/* rounded border with a gradient */
+.rounded-gradiant,
+.rounded-gradiant:focus {
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-image: linear-gradient(white, white), radial-gradient(circle at top left, #b60773, purple);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+/* media query for small screen */
+@media only screen and (max-width: 600px) {
+
+    .wrapper {
+        border: none;
+    }
+
+    .truncate {
+        width: 600px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
